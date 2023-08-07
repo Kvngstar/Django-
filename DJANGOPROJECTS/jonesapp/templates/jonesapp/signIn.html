@@ -1,0 +1,24 @@
+{% extends 'jonesapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<form  method="POST" action="authenticate">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="text" name="username" id="username" placeholder="Username" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="password" name="password" id="password" placeholder="password" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="submit" value="Register">
+        </div>
+    </div>
+</form>
+{% endblock  %}

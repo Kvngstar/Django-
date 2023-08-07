@@ -1,0 +1,16 @@
+{% extends 'jonesapp/base.html' %}
+{% load static%}
+{% block title %} {{ section.title }} {% endblock %}
+{% block content%}
+{% for clip in clips%}
+{% if clip %}
+    <video  controls="controls" preload="preload" >
+        <source src="{{ clip.clips.url }}" type="video/mp4"></source>
+    </video>
+{% else %}
+<h6>No video</h6>
+  {% endif %} 
+
+{% endfor %}
+</div>
+{% endblock %}

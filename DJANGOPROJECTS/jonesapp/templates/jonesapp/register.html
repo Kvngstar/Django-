@@ -1,0 +1,53 @@
+{% extends 'jonesapp/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+
+<form  method="POST" action="/processregister">
+
+  {% if messages %}
+  <ul class="messages" style="list-style: none;">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+      { message }
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="text" name="fname" id="fname" placeholder="First Name" required>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="text" name="username" id="username" placeholder="Username" required>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <input type="password" name="password" id="password" placeholder="password" required>
+        </div>
+      </diiv>
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="password" name="c_password" id="c_password" placeholder="confirm password" required>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <input type="submit" value="Register">
+        </div>
+      </div>
+</form>
+{% endblock  %}

@@ -1,0 +1,29 @@
+{% extends 'jonesapp/base.html' %}
+{% load static%}
+{% block title %} {{ item.description }} {% endblock %}
+
+{% block content %}
+    {% for item in image %}
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            {% if item.img %}
+            <h3><img src="{{ item.img.url }}"  class="img-rounded" alt="" width="105" height="75" /></h3>
+          {% else %}
+            <h3>No Image Found</h3>
+          {% endif %}
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{item.price}}</h5>
+              <p class="card-text">{{item.description |truncatewords:"500"}}</p>
+              <p class="card-text"><small class="text-muted">{{item.price}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+
+{% endblock  %}
